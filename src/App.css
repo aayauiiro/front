@@ -10,6 +10,9 @@
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  filter: invert(1);
+  width: 200px;
+  height: 200px;
 }
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
@@ -39,4 +42,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.quote-block {
+  border-left: 4px solid gray;
+  padding-left: 8px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  max-width: 50vw;
 }

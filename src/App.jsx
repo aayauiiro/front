@@ -1,24 +1,27 @@
-import { useState } from 'react'
-import { useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react';
+import './App.css';
+
+// What we learn
+// useEffect, useState, svg, fetch(), console.log, vw
 
 function App() {
-  const [quote, setQuote] = useState("Kanye once said")
-       
-      useEffect(() => {
-        fetch('https://auth-fastapi-1.onrender.com/').then((res) => {
-          return res.json()
-        })
-        .then((data) => {
-          console.log(data)
-          setQuote(data.message)
-        })
-      }, [])   
-   
+  const [quote, setQuote] = useState("")
+  useEffect(() => {
+    fetch('https://auth-fastapi-1.onrender.com/')
+    .then((res) => {
+      return res.json();
+    }).then((data) => {
+      console.log(data); // return {quote: ""}
+      setQuote(data.quote);
+    })
+  }, []);
+
   return (
-    <div>{quote}</div>
+    <div>
+      <img src='kanye.svg' alt="kanye picture" className='logo'/>
+      <h3>Kanye once said:</h3>
+      <div className='quote-block'>{quote}</div>
+    </div>
   )
 }
 
